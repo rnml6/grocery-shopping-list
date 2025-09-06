@@ -10,8 +10,7 @@ function Budget({ items }) {
 
             <div className='flex justify-between'>
                 <h3 className='self-center'>Budget:</h3>
-                <input
-                    value={overallBudget}
+                <input value={overallBudget}
                     onChange={(e) => setOverallBudget(Number(e.target.value) || null)}
                     className='border-1 border-black rounded-[7px] pl-2 p-1 [&::-webkit-inner-spin-button]:appearance-none'
                     placeholder='budget...'
@@ -21,8 +20,7 @@ function Budget({ items }) {
 
             <div className='flex justify-between'>
                 <h3 className='self-center'>Total Cost:</h3>
-                <input
-                    value={totalCost}
+                <input value={totalCost}
                     readOnly
                     className='pl-2 p-1 [&::-webkit-inner-spin-button]:appearance-none'
                     placeholder='total cost...'
@@ -32,15 +30,13 @@ function Budget({ items }) {
 
             <div className='flex justify-between border-b-2 border-t-2' style={{ borderColor: remainingBudget < 0 ? 'red' : '#99acff', color: remainingBudget < 0 ? 'red' : 'black' }}>
                 <h3 className='self-center'>Remaining:</h3>
-                <input
-                    value={remainingBudget}
+                <input value={remainingBudget}
                     readOnly
                     className='pl-2 p-1 [&::-webkit-inner-spin-button]:appearance-none'
                     placeholder='remaining...'
                     type="number"
                 />
             </div>
-
         </div>
     );
 }
