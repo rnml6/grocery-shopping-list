@@ -5,7 +5,7 @@ function ItemsList({ items, setItems, filterCategory }) {
   function markAsBought(id) {
     const updatedItems = items.map((item) =>
       item.id === id
-        ? { ...item, status: item.status === "MARK" ? "DONE" : item.status }
+        ? { ...item, status: item.status === "MARK" ? "✓" : item.status }
         : item
     );
     setItems(updatedItems);
@@ -31,12 +31,12 @@ function ItemsList({ items, setItems, filterCategory }) {
           <div className="pr-3 text-left self-center break-words">₱{item.price}</div>
           <div className="pr-6 text-left self-center break-words">₱{item.cost}</div>
           <div onClick={() => markAsBought(item.id)}
-            className="text-center content h-6 self-center rounded-[5px] text-white"
+            className="text-center content h-6 self-center rounded-[5px] text-white cursor-pointer"
             style={{ backgroundColor: item.status === "MARK" ? "green" : "gray" }}>
             {item.status}
           </div>
           <div onClick={() => deleteItems(item.id)}
-            className="ml-1 text-center bg-[red] content h-6 self-center rounded-[5px] text-white px-2 w-[max-content]">
+            className="ml-1 text-center bg-[red] content h-6 self-center rounded-[5px] text-white px-2 w-[max-content] cursor-pointer">
             X
           </div>
         </div>
