@@ -22,7 +22,7 @@ function AddItems({ items, setItems }) {
   }
 
   return (
-    <div className='bg-[white] rounded-[17px] flex flex-col py-5 px-12 gap-[18px]'>
+    <div className='bg-[white] rounded-[17px] flex flex-col py-5 px-12 gap-[18px] add_items_container'>
       <h3 className='text-left tracking-wide text-[25px] pt-1 text-[#5682B1]'>ITEMS DETAILS</h3>
 
       <div className='flex justify-between'>

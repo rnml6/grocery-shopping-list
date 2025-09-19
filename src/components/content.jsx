@@ -8,8 +8,8 @@ function Content() {
   const [filterCategory, setFilterCategory] = useState("");
 
   return (
-    <div className='h-[85vh] w-[90vw] bg-[rgb(255,255,255,0.5)] justify-self-center mt-[-20px] rounded-[30px] flex justify-between p-[40px]'>
-      <div className='w-[30%] flex flex-col gap-[20px]'>
+    <div className='h-[85vh] w-[90%] bg-[rgb(255,255,255,0.5)] justify-self-center mt-[-20px] rounded-[30px] flex justify-between p-[40px] whole_container'>
+      <div className='w-[30%] flex flex-col gap-[20px] left_container'>
         <AddItems items={items} setItems={setItems} />
         <Budget items={items} />
       </div>
@@ -18,7 +18,7 @@ function Content() {
         <div className="sticky top-0 bg-[white]">
           <div className="flex justify-between">
             <div>
-              <h1 className="text-4xl py-7 tracking-widest pl-8 text-4xl text-[#5682B1]">LIST OF ITEMS</h1>
+              <h1 className="text-4xl py-7 tracking-widest pl-8 text-[#5682B1]">LIST OF ITEMS</h1>
             </div>
             <div className="content-center">
               <label className="text-xs mr-2 tracking-widest text-[#5682B1] font-semibold">FILTER BY:</label>

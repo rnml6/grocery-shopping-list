@@ -1,12 +1,8 @@
 @import "tailwindcss";
 
-*{
-    box-sizing: border-box;
-}
-
 body{
     background-color: #99acff;
-    overflow-y: hidden
+    box-sizing: border-box;
 };
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -17,4 +13,32 @@ body{
 -ms-overflow-style: none; 
 scrollbar-width: none; 
 }
+
+
+@media (max-width: 480px) {
+    .whole_container {
+        @apply flex-col h-auto mb-[20px] p-0;
+    }
+    .left_container{
+        @apply w-full p-5 mt-3 ;
+    }
+    .add_items_container{
+        @apply px-6;
+    }
+    .add_items_container > h3{
+        @apply text-center text-[1rem] p-0 tracking-[2px];
+    }
+    .budget_container{
+        @apply py-5 px-6;
+    }
+    .budget_container > div > input {
+        @apply w-[63%];
+    }
+    .header_container{
+        @apply text-xl w-[80%];
+    }
+    .header_container > h1{
+        @apply text-2xl tracking-[5px] p-3 px-7;
+    }
+  }
   
