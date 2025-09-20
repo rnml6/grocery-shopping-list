@@ -57,7 +57,7 @@ function Content () {
           </div>
 
           <div className='grid grid-cols-[28%_20%_13%_12%_15%_13%] w-full h-auto items_tablehead'>
-            <div className='bg-[#99acff] pl-4 py-3 rounded-tl-[10px] text-xs tracking-widest font-medium name_padding'>
+            <div className='bg-[#99acff] pl-4 py-3 rounded-tl-[10px] text-xs tracking-widest font-medium'>
               NAME
             </div>
             <div className='bg-[#99acff] py-3 text-xs tracking-widest font-medium'>
