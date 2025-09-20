@@ -75,11 +75,15 @@ body {
   }
 
   .items_tablebody div {
-    @apply text-[7.5px];
+    @apply text-[7.8px];
   }
 
   .item_list_buttons {
     @apply flex;
+  }
+
+  .category_padding {
+    @apply pr-2;
   }
 
   .item_list_buttons div {

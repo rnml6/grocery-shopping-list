@@ -33,17 +33,19 @@ function ItemsList ({ items, setItems, filterCategory }) {
       {visibleItems.map(item => (
         <div
           key={item.id}
-          className='grid grid-cols-[29%_20%_13%_12%_15%_11%] w-full h-auto py-4 border-l-1 border-b-1 border-[#99acff] items_tablebody'
+          className='grid grid-cols-[28%_20%_13%_12%_15%_13%] w-full h-auto py-4 border-l-1 border-b-1 border-[#99acff] items_tablebody'
         >
           <div className='pl-3 self-center break-words pr-6'>{item.name}</div>
-          <div className='self-center break-words pr-5'>{item.category}</div>
+          <div className='self-center break-words pr-5 category_padding'>
+            {item.category}
+          </div>
           <div className='pr-3 text-left self-center break-words'>
             {item.quantity}
           </div>
           <div className='pr-3 text-left self-center break-words'>
             ₱{item.price}
           </div>
-          <div className='pr-6 text-left self-center break-words'>
+          <div className='pr-6 text-left self-center break-words category_padding'>
             ₱{item.cost}
           </div>
           <div className='flex item_list_buttons'>
