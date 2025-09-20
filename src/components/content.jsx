@@ -23,28 +23,30 @@ function Content () {
 
       <div className='w-[68%] bg-[white] rounded-[17px] pt-0 overflow-auto hide-scrollbar p-10 item_list_container'>
         <div className='sticky top-0 bg-[white]'>
-          <div className='flex justify-between item_list_header'>
+          <div className='flex justify-between item_list_header items-center'>
             <div>
               <h1 className='text-4xl py-7 tracking-widest pl-8 text-[#5682B1]'>
                 LIST OF ITEMS
               </h1>
             </div>
-            <div className='content-center select_button_container'>
-              <label className='text-xs mr-2 tracking-widest text-[#5682B1] font-semibold label_container'>
-                FILTER BY:
-              </label>
-              <select
-                onChange={e => setFilterCategory(e.target.value)}
-                className='border-1 border-[#5682B1] text-[#5682B1] rounded-[7px] pl-1 p-1 text-sm mr-1 tracking-widest'
-              >
-                <option defaultValue value='ALL'>
-                  All
-                </option>
-                <option value='CONDIMENTS'>Condiments</option>
-                <option value='BEVERAGES'>Beverages</option>
-                <option value='SNACKS'>Snacks</option>
-                <option value='OTHERS'>Others</option>
-              </select>
+            <div className='content-center select_button_container flex h-[max-content] pt-3'>
+              <div className='flex p-1 h-[max-content] items-center'>
+                <label className='text-xs mr-2 w-[max-content] tracking-widest text-[#5682B1] font-semibold label_container'>
+                  {maxWidth < 480 ? 'FILTER:' : 'FILTER BY:'}
+                </label>
+                <select
+                  onChange={e => setFilterCategory(e.target.value)}
+                  className='border-1 border-[#5682B1] text-[#5682B1] rounded-[7px] pl-1 p-1 text-sm mr-1 tracking-widest'
+                >
+                  <option defaultValue value='ALL'>
+                    All
+                  </option>
+                  <option value='CONDIMENTS'>Condiments</option>
+                  <option value='BEVERAGES'>Beverages</option>
+                  <option value='SNACKS'>Snacks</option>
+                  <option value='OTHERS'>Others</option>
+                </select>
+              </div>
               <button
                 onClick={() => setItems([])}
                 className='bg-[red] ml-4 h-[auto] py-1 px-10 tracking-widest text-white rounded-[13px] clear_button'

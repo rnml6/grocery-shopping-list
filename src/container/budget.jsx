@@ -12,7 +12,7 @@ function Budget ({ items }) {
         <input
           value={overallBudget}
           onChange={e => setOverallBudget(Number(e.target.value) || null)}
-          className='border border-black rounded-[7px] pl-2 p-1 [&::-webkit-inner-spin-button]:appearance-none w-[65%]'
+          className='border-b-1 border-t-1 border-black pl-2 p-1 [&::-webkit-inner-spin-button]:appearance-none w-[65%]'
           placeholder='budget...'
           type='number'
         />
