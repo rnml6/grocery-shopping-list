@@ -40,7 +40,7 @@ body {
     @apply text-2xl tracking-[5px] p-3 px-7;
   }
   .item_list_container {
-    @apply w-full px-2;
+    @apply w-full pl-2 pr-3;
   }
   .item_list_header {
     @apply flex items-center pt-1 pr-1;
