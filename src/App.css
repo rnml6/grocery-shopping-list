@@ -1,44 +1,85 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-body{
-    background-color: #99acff;
-    box-sizing: border-box;
-};
-
-.hide-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  
-.hide-scrollbar {
--ms-overflow-style: none; 
-scrollbar-width: none; 
+body {
+  background-color: #99acff;
+  box-sizing: border-box;
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 @media (max-width: 480px) {
-    .whole_container {
-        @apply flex-col h-auto mb-[20px] p-0;
-    }
-    .left_container{
-        @apply w-full p-5 mt-3 ;
-    }
-    .add_items_container{
-        @apply px-6;
-    }
-    .add_items_container > h3{
-        @apply text-center text-[1rem] p-0 tracking-[2px];
-    }
-    .budget_container{
-        @apply py-5 px-6;
-    }
-    .budget_container > div > input {
-        @apply w-[63%];
-    }
-    .header_container{
-        @apply text-xl w-[80%];
-    }
-    .header_container > h1{
-        @apply text-2xl tracking-[5px] p-3 px-7;
-    }
+  .whole_container {
+    @apply flex-col h-auto mb-[10px] p-0 w-[95%];
   }
-  
+  .left_container {
+    @apply w-full p-5 mt-3;
+  }
+  .add_items_container {
+    @apply px-6;
+  }
+  .add_items_container > h3 {
+    @apply text-center text-[1rem] p-0 tracking-[2px] font-bold;
+  }
+  .budget_container {
+    @apply py-5 px-6;
+  }
+  .budget_container > div > input {
+    @apply w-[63%];
+  }
+  .header_container {
+    @apply text-xl w-[80%] mt-4;
+  }
+  .header_container > h1 {
+    @apply text-2xl tracking-[5px] p-3 px-7;
+  }
+  .item_list_container {
+    @apply w-full px-5;
+  }
+  .item_list_header {
+    @apply flex flex-col;
+  }
+  .item_list_header div h1 {
+    @apply text-[1.1rem] text-center px-0 pt-5 pb-2 font-bold;
+  }
+  .item_list_header div select,
+  .item_list_header div label,
+  .item_list_header div button {
+    @apply text-[11px] mb-1;
+  }
+  .select_button_container {
+    @apply flex justify-between items-center p-2;
+  }
+  .clear_button {
+    @apply ml-4 px-16;
+  }
+  .label_container {
+    @apply m-0;
+  }
+
+  .items_tablehead > div {
+    @apply text-[7.5px];
+  }
+
+  .items_tablebody {
+    @apply py-3;
+  }
+
+  .items_tablebody div {
+    @apply text-[7.5px];
+  }
+
+  .item_list_buttons {
+    @apply flex;
+  }
+
+  .item_list_buttons div {
+    @apply flex justify-center w-[100%] h-auto p-1 items-center;
+  }
+}
