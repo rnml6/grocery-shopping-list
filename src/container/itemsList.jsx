@@ -33,7 +33,7 @@ function ItemsList ({ items, setItems, filterCategory }) {
       {visibleItems.map(item => (
         <div
           key={item.id}
-          className='grid grid-cols-[28%_20%_13%_12%_15%_13%] w-full h-auto py-4 border-l-1 border-b-1 border-[#99acff] items_tablebody'
+          className='grid grid-cols-[28%_21%_12%_12%_15%_13%] w-full h-auto py-4 border-l-1 border-b-1 border-[#99acff] items_tablebody'
         >
           <div className='pl-3 self-center break-words pr-6 name_padding'>
             {item.name}
