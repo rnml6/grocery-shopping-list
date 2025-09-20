@@ -26,7 +26,7 @@ function Content () {
           <div className='flex justify-between item_list_header items-center'>
             <div>
               <h1 className='text-4xl py-7 tracking-widest pl-8 text-[#5682B1]'>
-                LIST OF ITEMS
+                {maxWidth < 480 ? "ITEM'S LIST" : 'LIST OF ITEMS'}
               </h1>
             </div>
             <div className='content-center select_button_container flex h-[max-content] pt-3'>
