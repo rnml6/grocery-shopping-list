@@ -12,7 +12,7 @@ function ItemsList ({ items, setItems, filterCategory }) {
   function markAsBought (id) {
     const updatedItems = items.map(item =>
       item.id === id
-        ? { ...item, status: item.status === 'MARK' ? '✓' : item.status }
+        ? { ...item, status: item.status === 'MARK' ? 'BOUGHT' : item.status }
         : item
     )
     setItems(updatedItems)
@@ -33,41 +33,70 @@ function ItemsList ({ items, setItems, filterCategory }) {
       {visibleItems.map(item => (
         <div
           key={item.id}
-          className='grid grid-cols-[28%_21%_12%_12%_15%_13%] w-full h-auto py-4 border-l-1 border-b-1 border-[#99acff] items_tablebody'
+          className='grid grid-cols-15 pl-2 pt-3 pb-2 gap-2 items-center'
         >
-          <div className='pl-3 self-center break-words pr-6 name_padding'>
-            {item.name}
-          </div>
-          <div className='self-center break-words pr-5 category_cost_padding'>
-            {item.category}
-          </div>
-          <div className='pr-3 text-left self-center break-words'>
-            {item.quantity}
-          </div>
-          <div className='pr-3 text-left self-center break-words'>
-            {item.price}
-          </div>
-          <div className='pr-6 text-left self-center break-words category_cost_padding'>
-            {item.cost}
-          </div>
-          <div className='flex item_list_buttons'>
+          <div className='col-span-5 text-[1.1rem] uppercase'>{item.name}</div>
+          <div className='col-span-3 '>{item.category}</div>
+          <div className='col-span-2'>x{item.quantity}</div>
+          <div className='col-span-2'>₱{item.price}</div>
+          <div className='col-span-2'>₱{item.cost}</div>
+          <div className='flex col-span-1 justify-end'>
             <div
               onClick={() => markAsBought(item.id)}
-              className='text-center content w-full h-6 self-center rounded-[5px] text-white cursor-pointer'
-              style={{
-                backgroundColor: item.status === 'MARK' ? 'green' : 'gray'
-              }}
+              className={`items-list-mark-button 
+                ${
+                  item.status === 'MARK'
+                    ? 'bg-gradient-to-br from-indigo-500 to-blue-600'
+                    : 'bg-gray-500'
+                }`}
             >
-              {maxWidth < 480 ? '✓' : item.status}
+              {item.status === 'MARK' ? item.status : '✓'}
             </div>
             <div
               onClick={() => deleteItems(item.id)}
-              className='ml-1 text-center bg-[red] content h-6 self-center rounded-[5px] text-white px-2 w-[max-content] cursor-pointer'
+              className='items-list-clear'
             >
               ☓
             </div>
           </div>
           <div></div>
+        </div>
+      ))}
+
+      {visibleItems.map(item => (
+        <div
+          key={item.id}
+          className='res-item-list hidden border-1 my-2 px-2 py-1 rounded-md'
+        >
+          <div className='flex justify-between gap-2 items-center py-1'>
+            <div className='w-full text-[1rem]'>{item.name}</div>
+            <div className='col-span-2 text-[0.8rem]'>x{item.quantity}</div>
+            <div className='flex w-[max-content] gap-1 h-6'>
+              <div
+                onClick={() => markAsBought(item.id)}
+                className='w-[max-content] px-2 rounded-[5px] text-white cursor-pointer'
+                style={{
+                  backgroundColor: item.status === 'MARK' ? 'green' : 'gray'
+                }}
+              >
+                {maxWidth < 480 ? '✓' : item.status}
+              </div>
+              <div
+                onClick={() => deleteItems(item.id)}
+                className='w-[max-content] bg-[red] px-2 rounded-[5px] text-white cursor-pointer'
+              >
+                ☓
+              </div>
+            </div>
+          </div>
+
+          <div className='grid grid-cols-15  text-[0.8rem] gap-2'>
+            <div className=' col-span-9 '>{item.category}</div>
+
+            <div className=' col-span-2 '>₱{item.price}</div>
+
+            <div className=' col-span-4 '>= ₱{item.cost}</div>
+          </div>
         </div>
       ))}
     </div>

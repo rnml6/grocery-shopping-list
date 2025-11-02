@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 
-function AddItems ({ items, setItems }) {
+function AddItems ({ items, setItems, overallBudget, setOverallBudget }) {
   const [name, setName] = useState('')
   const [quantity, setQuantity] = useState('')
   const [category, setCategory] = useState('')
   const [price, setPrice] = useState('')
   const [status] = useState('MARK')
+
+  const [inputValue, setInputValue] = useState('')
 
   function addItem () {
     if (!name || !quantity || !category || !price) return
@@ -27,63 +29,108 @@ function AddItems ({ items, setItems }) {
     setPrice('')
   }
 
+  function clearForm () {
+    setName('')
+    setQuantity('')
+    setCategory('')
+    setPrice('')
+  }
+
   return (
-    <div className='bg-[white] rounded-[17px] flex flex-col py-5 px-12 gap-[18px] add_items_container'>
-      <h3 className='text-left tracking-wide text-[25px] pt-1 text-[#5682B1]'>
-        ITEMS DETAILS
-      </h3>
+    <div>
+      <h3 className='container-label'>Item Details</h3>
 
-      <div className='flex justify-between'>
-        <h3 className='self-center'>Name:</h3>
-        <input
-          value={name}
-          onChange={e => setName(e.target.value)}
-          className='border border-black rounded-[7px] pl-2 p-1 w-[65%]'
-          placeholder='name...'
-          type='text'
-        />
+      <div className='grid grid-cols-2 gap-6'>
+        <div className='add-items-divs '>
+          <label>NAME</label>
+          <input
+            value={name}
+            onChange={e => setName(e.target.value)}
+            type='text'
+            placeholder='Enter name'
+            className='add-items-fieldset '
+          />
+        </div>
+
+        <div className='add-items-divs'>
+          <label>QUANTITY</label>
+          <input
+            value={quantity}
+            onChange={e => setQuantity(e.target.value)}
+            type='number'
+            placeholder='Enter quantity'
+            className='add-items-fieldset [&::-webkit-inner-spin-button]:appearance-none'
+          />
+        </div>
+
+        <div className='add-items-divs'>
+          <label>CATEGORY</label>
+          <select
+            value={category}
+            onChange={e => setCategory(e.target.value)}
+            className='add-items-fieldset'
+          >
+            <option hidden>Select category</option>
+            <option value='CONDIMENTS'>Condiments</option>
+            <option value='BEVERAGES'>Beverages</option>
+            <option value='SNACKS'>Snacks</option>
+            <option value='OTHERS'>Others</option>
+          </select>
+        </div>
+
+        <div className='add-items-divs'>
+          <label>PRICE</label>
+          <input
+            value={price}
+            onChange={e => setPrice(e.target.value)}
+            type='number'
+            placeholder='Enter price'
+            className='add-items-fieldset [&::-webkit-inner-spin-button]:appearance-none'
+          />
+        </div>
       </div>
 
-      <div className='flex justify-between'>
-        <h3 className='self-center'>Quantity:</h3>
-        <input
-          value={quantity}
-          onChange={e => setQuantity(e.target.value)}
-          className='border border-black rounded-[7px] pl-2 p-1 [&::-webkit-inner-spin-button]:appearance-none w-[65%]'
-          placeholder='quantity...'
-          type='number'
-        />
+      <div className='flex mt-8 gap-6'>
+        <button onClick={addItem} className='add-item-button'>
+          ADD ITEM
+        </button>
+        <button onClick={clearForm} className='add-item-clear'>
+          CLEAR
+        </button>
       </div>
 
-      <div className='flex justify-between'>
-        <h3 className='self-center'>Category:</h3>
-        <select
-          value={category}
-          onChange={e => setCategory(e.target.value)}
-          className='border border-black rounded-[7px] pl-2 p-1 w-[65%]'
-        >
-          <option selected hidden></option>
-          <option value='CONDIMENTS'>Condiments</option>
-          <option value='BEVERAGES'>Beverages</option>
-          <option value='SNACKS'>Snacks</option>
-          <option value='OTHERS'>Others</option>
-        </select>
-      </div>
+      <div className='flex flex-col border-blue-600 border-t-2 mt-8 pt-4'>
+        <h3 className='container-label'>BUDGET DETAILS</h3>
 
-      <div className='flex justify-between'>
-        <h3 className='self-center'>Price:</h3>
-        <input
-          value={price}
-          onChange={e => setPrice(e.target.value)}
-          className='border border-black rounded-[7px] pl-2 p-1 [&::-webkit-inner-spin-button]:appearance-none w-[65%]'
-          placeholder='price...'
-          type='number'
-        />
-      </div>
+        <div className='flex items-center w-full gap-3'>
+          <input
+            type='number'
+            value={inputValue}
+            onChange={e => setInputValue(e.target.value)}
+            placeholder='Enter budget'
+            className='w-full [&::-webkit-inner-spin-button]:appearance-none add-items-fieldset '
+          />
 
-      <button onClick={addItem} className='py-[5px] rounded-[7px] bg-[#99acff]'>
-        Add Item
-      </button>
+          <div className='flex items-center gap-3'>
+            <button
+              className='budget-button'
+              onClick={() => setOverallBudget(Number(inputValue) || null)}
+            >
+              SAVE
+            </button>
+
+            <button
+              className='clear-button'
+              onClick={() => {
+                setOverallBudget(0)
+                setInputValue('')
+              }}
+            >
+              RESET
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

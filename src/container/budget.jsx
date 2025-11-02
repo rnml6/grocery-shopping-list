@@ -1,52 +1,89 @@
 import React, { useState } from 'react'
 
-function Budget ({ items }) {
-  const [overallBudget, setOverallBudget] = useState(null)
+function Budget ({ items, overallBudget }) {
+  const validBudget = Number(overallBudget) || 0
+
+  const totalQuantity = items.reduce(
+    (sum, item) => sum + Number(item.quantity),
+    0
+  )
+  const totalItems = items.length
+
+  const boughtCount = items.filter(item => item.status === 'BOUGHT').length
+
   const totalCost = items?.reduce((sum, item) => sum + (item.cost || 0), 0)
   const remainingBudget = overallBudget - totalCost
 
   return (
-    <div className='bg-[white] rounded-[17px] flex flex-col justify-center px-12 gap-3 h-full budget_container'>
-      <div className='flex justify-between'>
-        <h3 className='self-center'>Budget:</h3>
+    <div className='flex flex-col h-full gap-5'>
+      <div className='budget-div'>
+        <h3 className='budget-h3'>Total Budget</h3>
         <input
-          value={overallBudget}
-          onChange={e => setOverallBudget(Number(e.target.value) || null)}
-          className='border-b-1 border-t-1 border-black pl-2 p-1 [&::-webkit-inner-spin-button]:appearance-none w-[65%]'
-          placeholder='budget...'
-          type='number'
+          value={`₱${validBudget.toLocaleString()}`}
+          readOnly
+          className='budget-value'
+          type='text'
         />
       </div>
 
-      <div className='flex justify-between'>
-        <h3 className='self-center'>Total Cost:</h3>
+      <div className='budget-div'>
+        <h3 className='budget-h3'>Total Cost</h3>
         <input
-          value={totalCost}
+          value={`₱${totalCost.toLocaleString()}`}
           readOnly
-          className='pl-2 p-1 [&::-webkit-inner-spin-button]:appearance-none w-[65%]'
-          placeholder='total cost...'
-          type='number'
+          className='budget-value'
+          type='text'
         />
       </div>
 
       <div
-        className='relative flex justify-between border-b-2 border-t-2'
-        style={{
-          borderColor: remainingBudget < 0 ? 'red' : '#99acff',
-          color: remainingBudget < 0 ? 'red' : 'black'
-        }}
+        className={`remaining-budget-div
+          ${
+            remainingBudget < 0
+              ? 'bg-gradient-to-r from-red-500 to-red-700'
+              : 'bg-gradient-to-br from-indigo-500 to-blue-600'
+          }`}
       >
-        <h3 className='self-center'>
-          {' '}
-          {remainingBudget < 0 ? 'Insufficient:' : `Remaining:`}
+        <h3 className='budget-h3'>
+          {remainingBudget < 0 ? 'Insufficient Budget' : `Remaining Budget`}
         </h3>
         <input
-          value={remainingBudget}
+          value={`₱${remainingBudget.toLocaleString()}`}
           readOnly
-          className='pl-2 p-1 [&::-webkit-inner-spin-button]:appearance-none w-[65%]'
-          placeholder='remaining...'
-          type='number'
+          className='budget-value'
+          type='text'
         />
+      </div>
+
+      <div className='flex gap-5'>
+        <div className='budget-quantity-div w-2/7'>
+          <h3 className='budget-h3 text-center'>Bought Items</h3>
+          <input
+            value={`${boughtCount.toLocaleString()}`}
+            readOnly
+            className='budget-quantity budget-value'
+            type='text'
+          />
+        </div>
+        <div className='budget-quantity-div w-2/7'>
+          <h3 className='budget-h3 text-center'>Total Items</h3>
+          <input
+            value={`${totalItems.toLocaleString()}`}
+            readOnly
+            className='budget-quantity budget-value'
+            type='text'
+          />
+        </div>
+
+        <div className='budget-quantity-div w-3/7'>
+          <h3 className='budget-h3 text-center'>Total Quantity</h3>
+          <input
+            value={`${totalQuantity.toLocaleString()}`}
+            readOnly
+            className='budget-quantity budget-value '
+            type='text'
+          />
+        </div>
       </div>
     </div>
   )

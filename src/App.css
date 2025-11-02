@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 
 body {
-  background-color: #99acff;
   box-sizing: border-box;
 }
 
@@ -14,83 +13,144 @@ body {
   scrollbar-width: none;
 }
 
-@media (max-width: 480px) {
-  .whole_container {
-    @apply flex-col h-auto mb-[10px] p-0 w-[95%];
-  }
-  .left_container {
-    @apply w-full p-5 mt-3;
-  }
-  .add_items_container {
-    @apply px-6;
-  }
-  .add_items_container > h3 {
-    @apply text-center text-[1.1rem] p-0 tracking-[2px] font-bold;
-  }
-  .budget_container {
-    @apply py-5.5 px-6;
-  }
-  .budget_container > div > input {
-    @apply w-[63%];
-  }
-  .header_container {
-    @apply text-xl w-[80%] mt-4;
-  }
-  .header_container > h1 {
-    @apply text-2xl tracking-[5px] p-3 px-7;
-  }
-  .item_list_container {
-    @apply w-full pl-2 pr-3;
-  }
-  .item_list_header {
-    @apply flex items-center pt-1 pr-1;
-  }
-  .item_list_header div h1 {
-    @apply text-[1.1rem] text-center py-4 pl-5 font-bold;
-  }
-  .item_list_header div select,
-  .item_list_header div label,
-  .item_list_header div button {
-    @apply text-[7.5px] w-auto;
-  }
-  .item_list_header div label {
-    @apply mr-1;
-  }
-  .select_button_container {
-    @apply flex    items-center py-0.5;
-  }
-  .clear_button {
-    @apply m-0 px-[0.5rem] text-xs border-1 border-[red] rounded-[7px];
-  }
-  .label_container {
-    @apply m-0;
-  }
 
-  .items_tablehead > div {
-    @apply text-[8px];
-  }
 
-  .items_tablebody {
-    @apply py-3;
-  }
 
-  .items_tablebody div {
-    @apply text-[9px];
-  }
 
-  .item_list_buttons {
-    @apply flex;
-  }
 
-  .category_cost_padding {
-    @apply pr-2;
-  }
-
-  .name_padding {
-    @apply pl-2 pr-3;
-  }
-
-  .item_list_buttons div {
-    @apply flex justify-center w-[100%] h-auto p-1 items-center;
-  }
+/* for all */
+.container-label {
+  @apply pb-2 text-[2rem] tracking-wide uppercase font-bold bg-gradient-to-br from-indigo-500 to-blue-600 bg-clip-text text-transparent;
 }
+/* for all */
+
+
+
+
+
+
+
+/* header */
+.header-div {
+  @apply bg-gradient-to-br from-indigo-500 to-blue-600 font-bold text-white tracking-wide py-5;
+}
+
+.header-div > h1 {
+  @apply text-5xl pt-3 text-center;
+}
+/* header */
+
+
+
+
+
+
+/* additems */
+.add-items-divs {
+  @apply flex flex-col gap-1;
+}
+
+.add-items-divs > label {
+  @apply text-gray-600 font-medium text-[0.8rem];
+}
+
+.budget-button {
+  @apply bg-gradient-to-br from-indigo-500 to-blue-600 py-2 px-10 rounded font-semibold text-white;
+}
+
+.clear-button {
+  @apply bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 py-2 px-10 rounded font-semibold text-white;
+}
+
+.add-items-fieldset {
+  @apply border border-gray-300 focus:border-blue-400 focus:ring-1 focus:ring-blue-400 rounded-lg px-3 py-2 text-gray-800 outline-none transition;
+}
+
+.add-item-button {
+  @apply bg-gradient-to-br from-indigo-500 to-blue-600 w-full hover:bg-gradient-to-tl text-white font-semibold py-2 px-6 rounded-lg shadow duration-200;
+}
+
+.add-item-clear {
+  @apply bg-white w-full border-1 border-gray-200 hover:bg-gray-600/10 text-black font-semibold py-2 px-6 rounded-lg shadow-lg duration-200;
+}
+/* additems */
+
+
+
+
+
+
+/* budget */
+
+.budget-div {
+  @apply bg-gradient-to-br from-indigo-500 to-blue-600 p-4 rounded-2xl px-5 shadow-xl;
+}
+
+.remaining-budget-div {
+  @apply p-4 rounded-2xl px-5 shadow-xl;
+}
+
+.budget-h3 {
+  @apply text-[1rem] text-[white];
+}
+
+.budget-value {
+  @apply -mt-4 text-[3rem] w-full [&::-webkit-inner-spin-button]:appearance-none outline-none font-bold text-white tracking-wide;
+}
+
+.budget-quantity-div {
+  @apply bg-gradient-to-br from-indigo-500 to-blue-600 p-4 rounded-2xl px-3 shadow-xl;
+}
+
+.budget-quantity {
+  @apply text-[2rem] -mt-1 text-center;
+}
+/* budget */
+
+
+
+
+
+
+/* content */
+.add-items-div {
+  @apply w-6/10 bg-white rounded-2xl shadow-2xl p-6 px-10 border-1 border-blue-600;
+}
+
+.content-header {
+  @apply grid grid-cols-15 font-bold border-b-1 border-blue-600  uppercase items-center pt-2 pb-2 px-2 mb-2 gap-2;
+}
+
+.content-header > div {
+  @apply font-semibold;
+}
+
+.content-div {
+  @apply bg-gradient-to-br from-indigo-500 to-blue-600 w-2/3 py-2 px-2 flex justify-center rounded font-semibold text-white text-[1rem];
+}
+
+.content-select {
+  @apply outline-none uppercase w-full;
+}
+.content-option {
+  @apply text-black bg-blue-300 font-semibold border-t-2;
+}
+
+.content-clear {
+  @apply w-1/3 text-[1rem] px-5 bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 py-2 rounded font-semibold text-white;
+}
+/* content */
+
+
+
+
+
+
+/* items lists */
+.items-list-clear {
+  @apply ml-1 text-center bg-[red] self-center rounded-[5px] text-white py-1 px-3 w-[max-content] cursor-pointer;
+}
+.items-list-mark-button {
+  @apply text-center w-[max-content] py-1 px-3 self-center rounded-[5px] text-white cursor-pointer;
+}
+/* items lists */

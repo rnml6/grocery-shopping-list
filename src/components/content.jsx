@@ -7,6 +7,7 @@ function Content () {
   const [items, setItems] = useState([])
   const [filterCategory, setFilterCategory] = useState('')
   const [maxWidth, setMaxWidth] = useState(window.innerWidth)
+  const [overallBudget, setOverallBudget] = useState(0)
 
   useEffect(() => {
     const handleResize = () => setMaxWidth(window.innerWidth)
@@ -15,67 +16,62 @@ function Content () {
   }, [])
 
   return (
-    <div className='h-[85vh] w-[90%] bg-[rgb(255,255,255,0.5)] justify-self-center mt-[-20px] rounded-[30px] flex justify-between p-[40px] whole_container'>
-      <div className='w-[30%] flex flex-col gap-[20px] left_container'>
-        <AddItems items={items} setItems={setItems} />
-        <Budget items={items} />
+    <div className='flex flex-col p-15 py-7'>
+      <div className='flex gap-9 mb-6'>
+        <div className='add-items-div'>
+          <AddItems
+            items={items}
+            setItems={setItems}
+            overallBudget={overallBudget}
+            setOverallBudget={setOverallBudget}
+          />
+        </div>
+        <div className='w-4/10'>
+          <Budget items={items} overallBudget={overallBudget} />
+        </div>
       </div>
 
-      <div className='w-[68%] bg-[white] rounded-[17px] pt-0 overflow-auto hide-scrollbar p-10 item_list_container'>
-        <div className='sticky top-0 bg-[white]'>
-          <div className='flex justify-between item_list_header items-center'>
-            <div>
-              <h1 className='text-4xl py-7 tracking-widest pl-8 text-[#5682B1]'>
-                {maxWidth < 480 ? "ITEM'S LIST" : 'LIST OF ITEMS'}
-              </h1>
-            </div>
-            <div className='content-center select_button_container flex h-[max-content] pt-3'>
-              <div className='flex p-1 h-[max-content] items-center'>
-                <label className='text-xs mr-2 w-[max-content] tracking-widest text-[#5682B1] font-semibold label_container'>
-                  {maxWidth < 480 ? 'FILTER:' : 'FILTER BY:'}
-                </label>
-                <select
-                  onChange={e => setFilterCategory(e.target.value)}
-                  className='border-1 border-[#5682B1] text-[#5682B1] rounded-[7px] pl-1 p-1 text-sm mr-1 tracking-widest'
-                >
-                  <option defaultValue value='ALL'>
-                    All
-                  </option>
-                  <option value='CONDIMENTS'>Condiments</option>
-                  <option value='BEVERAGES'>Beverages</option>
-                  <option value='SNACKS'>Snacks</option>
-                  <option value='OTHERS'>Others</option>
-                </select>
-              </div>
-              <button
-                onClick={() => setItems([])}
-                className='bg-[red] ml-4 h-[auto] py-1 px-10 tracking-widest text-white rounded-[13px] clear_button'
-              >
-                CLEAR
-              </button>
-            </div>
-          </div>
+      <div className='bg-white rounded-2xl p-10 py-6 shadow-2xl '>
+        <div className='flex items-center justify-between py-3'>
+          <h1 className='container-label'>LIST OF ITEMS</h1>
 
-          <div className='grid grid-cols-[28%_21%_12%_12%_15%_13%] w-full h-auto items_tablehead'>
-            <div className='bg-[#99acff] pl-4 py-3 rounded-tl-[10px] text-xs tracking-widest font-medium'>
-              NAME
+          <div className='flex w-1/3 gap-3'>
+            <div className='content-div'>
+              <select
+                onChange={e => setFilterCategory(e.target.value)}
+                className='content-select'
+              >
+                <option className='content-option' defaultValue value='ALL'>
+                  All
+                </option>
+                <option className='content-option' value='CONDIMENTS'>
+                  Condiments
+                </option>
+                <option className='content-option' value='BEVERAGES'>
+                  Beverages
+                </option>
+                <option className='content-option' value='SNACKS'>
+                  Snacks
+                </option>
+                <option className='content-option' value='OTHERS'>
+                  Others
+                </option>
+              </select>
             </div>
-            <div className='bg-[#99acff] py-3 text-xs tracking-widest font-medium'>
-              CATEGORY
-            </div>
-            <div className='bg-[#99acff] py-3 text-xs tracking-widest font-medium'>
-              {maxWidth < 480 ? 'QTY' : 'QUANTITY'}
-            </div>
-            <div className='bg-[#99acff] py-3 text-xs tracking-widest font-medium'>
-              PRICE
-            </div>
-            <div className='bg-[#99acff] py-3 text-xs tracking-widest font-medium'>
-              COST
-            </div>
-            <div className='bg-[#99acff] py-3 text-xs tracking-widest font-medium rounded-tr-[10px] rounded-br-[10px]'>
-              STATUS
-            </div>
+
+            <button onClick={() => setItems([])} className='content-clear'>
+              CLEAR ALL
+            </button>
           </div>
+        </div>
+
+        <div className='content-header'>
+          <div className='col-span-5'>Name</div>
+          <div className='col-span-3'>Category</div>
+          <div className='col-span-2'>Quantity</div>
+          <div className='col-span-2'>Price</div>
+          <div className='col-span-2'>Cost</div>
+          <div className='col-span-1 text-end'>Status</div>
         </div>
 
         <ItemsList
