@@ -16,9 +16,9 @@ function Content () {
   }, [])
 
   return (
-    <div className='flex flex-col p-15 py-7'>
-      <div className='flex gap-9 mb-6'>
-        <div className='add-items-div'>
+    <div className='flex flex-col p-15 py-7 max-[890px]:p-10 max-[890px]:py-5 max-[672px]:p-5 max-[500px]:p-0'>
+      <div className='flex gap-9 mb-6 max-[1040px]:flex-col' >
+        <div className='add-items-div '>
           <AddItems
             items={items}
             setItems={setItems}
@@ -26,7 +26,7 @@ function Content () {
             setOverallBudget={setOverallBudget}
           />
         </div>
-        <div className='w-4/10'>
+        <div className='w-4/10 max-[1220px]:w-9/20 max-[1110px]:w-1/2 max-[1040px]:w-full' >
           <Budget items={items} overallBudget={overallBudget} />
         </div>
       </div>
@@ -35,7 +35,7 @@ function Content () {
         <div className='flex items-center justify-between py-3'>
           <h1 className='container-label'>LIST OF ITEMS</h1>
 
-          <div className='flex w-1/3 gap-3'>
+          <div className='flex w-1/3  gap-3 max-[1225px]:w-4/10 max-[1110px]:w-1/2 max-[890px]:w-3/5'>
             <div className='content-div'>
               <select
                 onChange={e => setFilterCategory(e.target.value)}
@@ -60,18 +60,18 @@ function Content () {
             </div>
 
             <button onClick={() => setItems([])} className='content-clear'>
-              CLEAR ALL
+              CLEAR
             </button>
           </div>
         </div>
 
         <div className='content-header'>
-          <div className='col-span-5'>Name</div>
+          <div className='col-span-7'>Name</div>
           <div className='col-span-3'>Category</div>
-          <div className='col-span-2'>Quantity</div>
+          <div className='col-span-2'>Qty</div>
           <div className='col-span-2'>Price</div>
-          <div className='col-span-2'>Cost</div>
-          <div className='col-span-1 text-end'>Status</div>
+          <div className='col-span-3'>Cost</div>
+          <div className='col-span-2 text-end'>Status</div>
         </div>
 
         <ItemsList

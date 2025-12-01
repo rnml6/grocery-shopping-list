@@ -33,14 +33,14 @@ function ItemsList ({ items, setItems, filterCategory }) {
       {visibleItems.map(item => (
         <div
           key={item.id}
-          className='grid grid-cols-15 pl-2 pt-3 pb-2 gap-2 items-center'
+          className='grid grid-cols-19 px-2 pt-3 pb-2 gap-2 items-center max-[1040px]:hidden'
         >
-          <div className='col-span-5 text-[1.1rem] uppercase'>{item.name}</div>
+          <div className='col-span-7 text-[1.1rem] uppercase'>{item.name}</div>
           <div className='col-span-3 '>{item.category}</div>
           <div className='col-span-2'>x{item.quantity}</div>
           <div className='col-span-2'>₱{item.price}</div>
-          <div className='col-span-2'>₱{item.cost}</div>
-          <div className='flex col-span-1 justify-end'>
+          <div className='col-span-3'>₱{item.cost}</div>
+          <div className='flex col-span-2 justify-end'>
             <div
               onClick={() => markAsBought(item.id)}
               className={`items-list-mark-button 
@@ -66,36 +66,67 @@ function ItemsList ({ items, setItems, filterCategory }) {
       {visibleItems.map(item => (
         <div
           key={item.id}
-          className='res-item-list hidden border-1 my-2 px-2 py-1 rounded-md'
+          className='res-item-list border border-blue-600 hidden my-3 px-3 py-2 rounded-xl shadow-sm max-[1040px]:block bg-white'
         >
-          <div className='flex justify-between gap-2 items-center py-1'>
-            <div className='w-full text-[1rem]'>{item.name}</div>
-            <div className='col-span-2 text-[0.8rem]'>x{item.quantity}</div>
-            <div className='flex w-[max-content] gap-1 h-6'>
+          <div className='flex justify-between gap-3 items-start px-1 py-1'>
+            <div className='flex w-full gap-2 items-center'>
+              <div className='text-[1.5rem] font-semibold capitalize leading-tight text-blue-700'>
+                {item.name}
+              </div>
+
+              <div
+                className=' inline-block text-[0.75rem] bg-gradient-to-br 
+          from-indigo-400 to-blue-500 text-white px-2 py-0.5 rounded-md 
+          font-semibold tracking-wide shadow-sm'
+              >
+                {item.category}
+              </div>
+            </div>
+
+            <div className='flex gap-1 h-fit'>
               <div
                 onClick={() => markAsBought(item.id)}
-                className='w-[max-content] px-2 rounded-[5px] text-white cursor-pointer'
-                style={{
-                  backgroundColor: item.status === 'MARK' ? 'green' : 'gray'
-                }}
+                className={`cursor-pointer text-[0.8rem] text-white px-2 py-1 rounded-md font-semibold
+          ${
+            item.status === 'MARK'
+              ? 'bg-gradient-to-br from-indigo-500 to-blue-600'
+              : 'bg-gray-500'
+          }`}
               >
-                {maxWidth < 480 ? '✓' : item.status}
+                {item.status === 'MARK' ? item.status : '✓'}
               </div>
+
               <div
                 onClick={() => deleteItems(item.id)}
-                className='w-[max-content] bg-[red] px-2 rounded-[5px] text-white cursor-pointer'
+                className='bg-red-500 px-2 py-1 rounded-md text-white cursor-pointer text-[0.8rem] font-bold'
               >
                 ☓
               </div>
             </div>
           </div>
 
-          <div className='grid grid-cols-15  text-[0.8rem] gap-2'>
-            <div className=' col-span-9 '>{item.category}</div>
+          <div className='flex justify-between py-1 px-1 pl-2 pt-0.5 text-[0.85rem] text-gray-700'>
+            <div className='flex gap-6'>
+              <span>
+                QTY:{' '}
+                <strong className='text-[1rem] font-bold text-blue-700'>
+                {Number(item.quantity).toLocaleString()}
+                </strong>
+              </span>
+              <span>
+                PRICE:{' '}
+                <strong className='text-[1rem] font-bold text-blue-700'>
+                ₱{Number(item.price).toLocaleString()}
+                </strong>
+              </span>
+            </div>
 
-            <div className=' col-span-2 '>₱{item.price}</div>
-
-            <div className=' col-span-4 '>= ₱{item.cost}</div>
+            <div>
+              TOTAL:{' '}
+              <strong className='text-[1rem] font-bold text-blue-700'>
+              ₱{Number(item.cost).toLocaleString()}
+              </strong>
+            </div>
           </div>
         </div>
       ))}

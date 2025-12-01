@@ -40,7 +40,7 @@ function AddItems ({ items, setItems, overallBudget, setOverallBudget }) {
     <div>
       <h3 className='container-label'>Item Details</h3>
 
-      <div className='grid grid-cols-2 gap-6'>
+      <div className='grid grid-cols-2 gap-6 max-[605px]:flex max-[605px]:flex-col max-[605px]:gap-3 max-[605px]:mt-1'>
         <div className='add-items-divs '>
           <label>NAME</label>
           <input
@@ -90,7 +90,7 @@ function AddItems ({ items, setItems, overallBudget, setOverallBudget }) {
         </div>
       </div>
 
-      <div className='flex mt-8 gap-6'>
+      <div className='flex mt-8 gap-6 max-[605px]:mt-5'>
         <button onClick={addItem} className='add-item-button'>
           ADD ITEM
         </button>
@@ -99,10 +99,10 @@ function AddItems ({ items, setItems, overallBudget, setOverallBudget }) {
         </button>
       </div>
 
-      <div className='flex flex-col border-blue-600 border-t-2 mt-8 pt-4'>
+      <div className='flex flex-col border-blue-600 border-t-2 mt-8 pt-4 max-[605px]:mt-5'>
         <h3 className='container-label'>BUDGET DETAILS</h3>
 
-        <div className='flex items-center w-full gap-3'>
+        <div className='flex items-center w-full gap-3 max-[605px]:flex-col'>
           <input
             type='number'
             value={inputValue}
@@ -111,9 +111,9 @@ function AddItems ({ items, setItems, overallBudget, setOverallBudget }) {
             className='w-full [&::-webkit-inner-spin-button]:appearance-none add-items-fieldset '
           />
 
-          <div className='flex items-center gap-3'>
+          <div className='flex items-center gap-3 max-[605px]:w-full' >
             <button
-              className='budget-button'
+              className='budget-button '
               onClick={() => setOverallBudget(Number(inputValue) || null)}
             >
               SAVE
