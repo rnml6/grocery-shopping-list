@@ -66,7 +66,7 @@ function ItemsList ({ items, setItems, filterCategory }) {
       {visibleItems.map(item => (
         <div
           key={item.id}
-          className='res-item-list border border-blue-600 hidden my-3 px-3 py-2 rounded-xl shadow-sm max-[1040px]:block bg-white max-[420px]:rounded-none max-[420px]:border-b-1 max-[420px]:border-l-1 max-[420px]:ml-6 max-[420px]:pl-2.5 max-[420px]:rounded-l-xl max-[420px]:border-r-0'
+          className='res-item-list border border-blue-600 hidden my-3 px-3 py-2 rounded-xl shadow-sm max-[1040px]:block bg-white max-[420px]:rounded-none max-[420px]:border-b-1 max-[420px]:border-l-1 max-[420px]:ml-3.5 max-[420px]:pl-2 max-[420px]:rounded-l-xl max-[420px]:border-r-0'
         >
           <div className='flex justify-between gap-3 items-start px-1 py-1'>
             <div className='flex w-full gap-1 items-start flex-col'>
