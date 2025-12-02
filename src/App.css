@@ -38,7 +38,7 @@ body {
 }
 
 .header-div > h1 {
-  @apply text-5xl pt-3 text-center max-[1040px]:text-4xl max-[605px]:text-3xl max-[500px]:text-2xl max-[380px]:text-xl;
+  @apply text-5xl pt-3 text-center max-[1040px]:text-4xl max-[605px]:text-3xl max-[500px]:text-2xl max-[380px]:text-[1.3rem];
 }
 /* header */
 
