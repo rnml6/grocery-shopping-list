@@ -70,7 +70,7 @@ function ItemsList ({ items, setItems, filterCategory }) {
         >
           <div className='flex justify-between gap-3 items-start px-1 py-1'>
             <div className='flex w-full gap-1 items-start flex-col'>
-              <div className='text-[1.5rem] max-[700px]:text-[1.3rem] max-[518px]:text-[1.1rem] font-semibold capitalize leading-tight text-blue-700 max-[385px]:text-[1rem]'>
+              <div className='text-[1.5rem] max-[700px]:text-[1.3rem] max-[518px]:text-[1.1rem] font-semibold capitalize leading-tight text-blue-700 max-[385px]:text-[1rem] max-[385px]:mb-1'>
                 {item.name}
               </div>
               <div className='flex justify-between w-full items-center'>

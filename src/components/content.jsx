@@ -32,7 +32,7 @@ function Content () {
       </div>
 
       <div className='bg-white rounded-2xl p-10 py-6 shadow-2xl max-[605px]:px-6 max-[605px]:py-1 max-[500px]:rounded-none max-[500px]:pb-4'>
-        <div className='flex items-center justify-between py-3 max-[700px]:flex-col max-[700px]:items-start'>
+        <div className='flex items-center justify-between py-3 max-[700px]:flex-col max-[700px]:items-start max-[1040px]:pb-0'>
           <h1 className='container-label'>LIST OF ITEMS</h1>
 
           <div className='flex w-1/3  gap-3 max-[1225px]:w-4/10 max-[1110px]:w-1/2 max-[890px]:w-3/5 max-[700px]:w-full'>
