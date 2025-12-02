@@ -66,11 +66,11 @@ function ItemsList ({ items, setItems, filterCategory }) {
       {visibleItems.map(item => (
         <div
           key={item.id}
-          className='res-item-list border border-blue-600 hidden my-3 px-3 py-2 rounded-xl shadow-sm max-[1040px]:block bg-white'
+          className='res-item-list border border-blue-600 hidden my-3 px-3 py-2 rounded-xl shadow-sm max-[1040px]:block bg-white max-[420px]:rounded-none max-[420px]:border-b-1 max-[420px]:border-l-1 max-[420px]:ml-2.5 max-[420px]:pl-2.5 max-[420px]:rounded-l-xl max-[420px]:border-r-0'
         >
           <div className='flex justify-between gap-3 items-start px-1 py-1'>
             <div className='flex w-full gap-1 items-start flex-col'>
-              <div className='text-[1.5rem] max-[700px]:text-[1.3rem] max-[518px]:text-[1.1rem] font-semibold capitalize leading-tight text-blue-700 max-[385px]:text-[1rem] max-[385px]:mb-1'>
+              <div className='text-[1.5rem] max-[700px]:text-[1.3rem] max-[518px]:text-[1.2rem] font-semibold capitalize leading-tight text-blue-700 max-[385px]:text-[1.2rem] max-[385px]:mb-1'>
                 {item.name}
               </div>
               <div className='flex justify-between w-full items-center'>
@@ -109,13 +109,13 @@ function ItemsList ({ items, setItems, filterCategory }) {
             <div className='flex gap-6'>
               <span>
                 QTY:{' '}
-                <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] max-[385px]:text-[0.7rem]'>
+                <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] '>
                   {Number(item.quantity).toLocaleString()}
                 </strong>
               </span>
               <span>
                 PRICE:{' '}
-                <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] max-[385px]:text-[0.7rem]'>
+                <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] '>
                   ₱{Number(item.price).toLocaleString()}
                 </strong>
               </span>
@@ -123,7 +123,7 @@ function ItemsList ({ items, setItems, filterCategory }) {
 
             <div>
               TOTAL:{' '}
-              <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] max-[385px]:text-[0.7rem]'>
+              <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] '>
                 ₱{Number(item.cost).toLocaleString()}
               </strong>
             </div>
