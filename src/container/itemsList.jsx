@@ -77,14 +77,14 @@ function ItemsList ({ items, setItems, filterCategory }) {
                 <div
                   className=' inline-block text-[0.75rem] bg-gradient-to-br 
           from-indigo-400 to-blue-500 text-white px-2 py-0.5 rounded-md 
-          font-semibold tracking-wide shadow-sm max-[385px]:text-[0.65rem]'
+          font-semibold tracking-wide shadow-sm max-[385px]:text-[0.8rem]'
                 >
                   {item.category}
                 </div>
                 <div className='flex gap-1 h-fit'>
                   <div
                     onClick={() => markAsBought(item.id)}
-                    className={`cursor-pointer text-[0.8rem] text-white px-2 py-1 rounded-md font-semibold max-[385px]:text-[0.65rem]
+                    className={`cursor-pointer text-[0.8rem] text-white px-2 py-1 rounded-md font-semibold
           ${
             item.status === 'MARK'
               ? 'bg-gradient-to-br from-indigo-500 to-blue-600'
@@ -96,7 +96,7 @@ function ItemsList ({ items, setItems, filterCategory }) {
 
                   <div
                     onClick={() => deleteItems(item.id)}
-                    className='bg-red-500 px-2 py-1 rounded-md text-white cursor-pointer text-[0.8rem] font-bold max-[385px]:text-[0.65rem]'
+                    className='bg-red-500 px-2 py-1 rounded-md text-white cursor-pointer text-[0.8rem] font-bold '
                   >
                     ☓
                   </div>
