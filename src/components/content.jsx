@@ -17,7 +17,7 @@ function Content () {
 
   return (
     <div className='flex flex-col p-15 py-7 max-[890px]:p-10 max-[890px]:py-5 max-[672px]:p-5 max-[500px]:p-0'>
-      <div className='flex gap-9 mb-6 max-[1040px]:flex-col' >
+      <div className='flex gap-9 mb-6 max-[1040px]:flex-col max-[500px]:gap-5 max-[420px]:gap-3' >
         <div className='add-items-div '>
           <AddItems
             items={items}

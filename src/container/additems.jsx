@@ -111,7 +111,7 @@ function AddItems ({ items, setItems, overallBudget, setOverallBudget }) {
             className='w-full [&::-webkit-inner-spin-button]:appearance-none add-items-fieldset '
           />
 
-          <div className='flex items-center gap-3 max-[605px]:w-full' >
+          <div className='flex items-center gap-3 max-[605px]:w-full max-[605px]:gap-6' >
             <button
               className='budget-button '
               onClick={() => setOverallBudget(Number(inputValue) || null)}

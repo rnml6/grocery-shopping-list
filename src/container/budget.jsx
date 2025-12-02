@@ -15,7 +15,7 @@ function Budget ({ items, overallBudget }) {
   const remainingBudget = overallBudget - totalCost
 
   return (
-    <div className='flex flex-col h-full gap-5 max-[890px]:gap-3'>
+    <div className='flex flex-col h-full gap-5 max-[890px]:gap-3 max-[500px]:mx-5 max-[420px]:mx-2 max-[420px]:gap-2'>
       <div className='budget-div'>
         <h3 className='budget-h3'>Total Budget</h3>
         <input
@@ -55,7 +55,7 @@ function Budget ({ items, overallBudget }) {
         />
       </div>
 
-      <div className='flex gap-5 max-[890px]:gap-3'>
+      <div className='flex gap-5 max-[890px]:gap-3 max-[420px]:gap-2 max-[390px]:hidden'>
         <div className='budget-quantity-div w-2/7'>
           <h3 className='budget-h3 text-center'>Bought Items</h3>
           <input
@@ -67,6 +67,36 @@ function Budget ({ items, overallBudget }) {
         </div>
         <div className='budget-quantity-div w-2/7'>
           <h3 className='budget-h3 text-center'>Total Items</h3>
+          <input
+            value={`${totalItems.toLocaleString()}`}
+            readOnly
+            className='budget-quantity budget-value'
+            type='text'
+          />
+        </div>
+
+        <div className='budget-quantity-div w-3/7'>
+          <h3 className='budget-h3 text-center'>Total Quantity</h3>
+          <input
+            value={`${totalQuantity.toLocaleString()}`}
+            readOnly
+            className='budget-quantity budget-value '
+            type='text'
+          />
+        </div>
+      </div>
+      <div className='hidden gap-5 max-[890px]:gap-3 max-[420px]:gap-2 max-[390px]:flex'>
+        <div className='budget-quantity-div w-2/7'>
+          <h3 className='budget-h3 text-center'>Bought</h3>
+          <input
+            value={`${boughtCount.toLocaleString()}`}
+            readOnly
+            className='budget-quantity budget-value'
+            type='text'
+          />
+        </div>
+        <div className='budget-quantity-div w-2/7'>
+          <h3 className='budget-h3 text-center'>Total</h3>
           <input
             value={`${totalItems.toLocaleString()}`}
             readOnly

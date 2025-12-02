@@ -38,21 +38,21 @@ body {
 }
 
 .header-div > h1 {
-  @apply text-5xl pt-3 text-center;
+  @apply text-5xl pt-3 text-center max-[1040px]:text-4xl max-[605px]:text-3xl max-[500px]:text-2xl max-[380px]:text-xl;
 }
 /* header */
 
 /* additems */
 .add-items-divs {
-  @apply flex flex-col gap-1 max-[605px]:col-span-2  max-[605px]:justify-between max-[605px]:w-full max-[605px]:gap-0 ;
+  @apply flex flex-col gap-1 max-[605px]:col-span-2  max-[605px]:justify-between max-[605px]:w-full max-[605px]:gap-0;
 }
 
 .add-items-divs > label {
-  @apply text-gray-600 font-medium text-[0.8rem] ;
+  @apply text-gray-600 font-medium text-[0.8rem];
 }
 
 .budget-button {
-  @apply max-[605px]:w-full bg-gradient-to-br from-indigo-500 to-blue-600 py-2 px-10 rounded font-semibold text-white max-[1110px]:px-5 ;
+  @apply max-[605px]:w-full bg-gradient-to-br from-indigo-500 to-blue-600 py-2 px-10 rounded font-semibold text-white max-[1110px]:px-5 max-[605px]:rounded-lg;
 }
 
 .clear-button {
@@ -60,7 +60,7 @@ body {
 }
 
 .add-items-fieldset {
-  @apply max-[605px]:w-full border border-gray-300 focus:border-blue-400 focus:ring-1 focus:ring-blue-400 rounded-lg px-3 py-2 text-gray-800 outline-none transition ;
+  @apply max-[605px]:w-full border border-gray-300 focus:border-blue-400 focus:ring-1 focus:ring-blue-400 rounded-lg px-3 py-2 text-gray-800 outline-none transition;
 }
 
 .add-item-button {
@@ -83,11 +83,11 @@ body {
 }
 
 .budget-h3 {
-  @apply text-[1rem] text-[white] max-[1450px]:text-[0.9rem];
+  @apply text-[1rem] text-[white] max-[1450px]:text-[0.9rem] max-[605px]:mb-1 max-[455px]:text-[0.8rem];
 }
 
 .budget-value {
-  @apply -mt-4 text-[3rem] max-[890px]:text-[2.5rem] w-full [&::-webkit-inner-spin-button]:appearance-none outline-none font-bold text-white tracking-wide;
+  @apply -mt-4 text-[3rem] max-[890px]:-mt-4 max-[890px]:text-[2.5rem] w-full [&::-webkit-inner-spin-button]:appearance-none outline-none font-bold text-white tracking-wide max-[455px]:text-[2rem];
 }
 
 .budget-quantity-div {
@@ -95,7 +95,7 @@ body {
 }
 
 .budget-quantity {
-  @apply text-[2rem] -mt-1 text-center;
+  @apply text-[2rem] -mt-1 text-center max-[455px]:text-[1.8rem] max-[605px]:-mt-3;
 }
 /* budget */
 
