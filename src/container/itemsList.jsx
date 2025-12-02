@@ -109,13 +109,13 @@ function ItemsList ({ items, setItems, filterCategory }) {
             <div className='flex gap-6'>
               <span>
                 QTY:{' '}
-                <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] '>
+                <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.9rem] '>
                   {Number(item.quantity).toLocaleString()}
                 </strong>
               </span>
               <span>
                 PRICE:{' '}
-                <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] '>
+                <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.9rem] '>
                   ₱{Number(item.price).toLocaleString()}
                 </strong>
               </span>
@@ -123,7 +123,7 @@ function ItemsList ({ items, setItems, filterCategory }) {
 
             <div>
               TOTAL:{' '}
-              <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] '>
+              <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.9rem] '>
                 ₱{Number(item.cost).toLocaleString()}
               </strong>
             </div>
