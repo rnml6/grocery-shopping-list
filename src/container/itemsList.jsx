@@ -66,7 +66,7 @@ function ItemsList ({ items, setItems, filterCategory }) {
       {visibleItems.map(item => (
         <div
           key={item.id}
-          className='res-item-list border border-blue-600 hidden my-3 px-3 py-2 rounded-xl shadow-sm max-[1040px]:block bg-white max-[420px]:rounded-none max-[420px]:border-b-1 max-[420px]:border-l-1 max-[420px]:ml-3.5 max-[420px]:pl-2 max-[420px]:rounded-l-xl max-[420px]:border-r-0'
+          className='res-item-list border border-blue-600 hidden my-3 px-3 py-2 rounded-xl shadow-sm max-[1040px]:block bg-white max-[420px]:rounded-none max-[420px]:border-b-0 max-[420px]:border-l-0 max-[420px]:border-r-0 max-[420px]:my-0 max-[420px]:px-0 max-[420px]:mx-5 max-[420px]:shadow-none'
         >
           <div className='flex justify-between gap-3 items-start px-1 py-1'>
             <div className='flex w-full gap-1 items-start flex-col'>
@@ -77,14 +77,14 @@ function ItemsList ({ items, setItems, filterCategory }) {
                 <div
                   className=' inline-block text-[0.75rem] bg-gradient-to-br 
           from-indigo-400 to-blue-500 text-white px-2 py-0.5 rounded-md 
-          font-semibold tracking-wide shadow-sm max-[385px]:text-[0.8rem]'
+          font-semibold tracking-wide shadow-sm max-[385px]:text-[0.9rem]'
                 >
                   {item.category}
                 </div>
                 <div className='flex gap-1 h-fit'>
                   <div
                     onClick={() => markAsBought(item.id)}
-                    className={`cursor-pointer text-[0.8rem] text-white px-2 py-1 rounded-md font-semibold
+                    className={`cursor-pointer text-[0.9rem] text-white px-2 py-1 rounded-md font-semibold
           ${
             item.status === 'MARK'
               ? 'bg-gradient-to-br from-indigo-500 to-blue-600'
@@ -96,7 +96,7 @@ function ItemsList ({ items, setItems, filterCategory }) {
 
                   <div
                     onClick={() => deleteItems(item.id)}
-                    className='bg-red-500 px-2 py-1 rounded-md text-white cursor-pointer text-[0.8rem] font-bold '
+                    className='bg-red-500 px-2 py-1 rounded-md text-white cursor-pointer text-[0.9rem] font-bold '
                   >
                     ☓
                   </div>
@@ -105,7 +105,7 @@ function ItemsList ({ items, setItems, filterCategory }) {
             </div>
           </div>
 
-          <div className='flex justify-between py-1 px-1 pl-2 pt-0.5 text-[0.85rem] max-[518px]:text-[0.7rem] text-gray-700'>
+          <div className='flex justify-between py-1 px-1 pl-1.5 pt-0.5 text-[0.85rem] max-[518px]:text-[0.7rem] text-gray-700'>
             <div className='flex gap-6'>
               <span>
                 QTY:{' '}

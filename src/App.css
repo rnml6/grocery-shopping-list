@@ -38,7 +38,7 @@ body {
 }
 
 .header-div > h1 {
-  @apply text-5xl pt-3 text-center max-[1040px]:text-4xl max-[605px]:text-3xl max-[500px]:text-2xl max-[380px]:text-[1.3rem];
+  @apply text-5xl pt-3 text-center max-[1040px]:text-4xl max-[605px]:text-3xl max-[500px]:text-2xl max-[380px]:text-[1.4rem];
 }
 /* header */
 
@@ -105,7 +105,7 @@ body {
 }
 
 .content-header {
-  @apply grid grid-cols-19 font-bold border-b-1 border-blue-600 uppercase items-center pt-2 pb-2 px-2 mb-2 gap-2 max-[1040px]:hidden;
+  @apply grid grid-cols-19 font-bold border-b-1 border-blue-600 uppercase items-center pt-2 pb-2 px-2 mb-2 gap-2 max-[1040px]:hidden ;
 }
 
 .content-header > div {

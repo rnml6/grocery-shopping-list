@@ -72,8 +72,18 @@ function AddItems ({ items, setItems, overallBudget, setOverallBudget }) {
           >
             <option hidden>Select category</option>
             <option value='CONDIMENTS'>Condiments</option>
-            <option value='BEVERAGES'>Beverages</option>
             <option value='SNACKS'>Snacks</option>
+            <option value='BEVERAGES'>Beverages</option>
+            <option value='CANNED GOODS'>Canned Goods</option>
+            <option value='DAIRY PRODUCTS'>Dairy Products</option>
+            <option value='MEAT & SEAFOOD'>Meat & Seafood</option>
+            <option value='BAKERY'>Bakery</option>
+            <option value='PRODUCE PRODUCTS'>Produce Products</option>
+            <option value='COOKING ESSENTIALS'>Cooking Essentials</option>
+            <option value='SWEETS'>Sweets</option>
+            <option value='FROZEN FOODS'>Frozen Foods</option>
+            <option value='TOILETRIES'>Toiletries</option>
+            <option value='CLEANING SUPPLIES'>Cleaning Supplies</option>
             <option value='OTHERS'>Others</option>
           </select>
         </div>
