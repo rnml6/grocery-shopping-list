@@ -69,62 +69,62 @@ function ItemsList ({ items, setItems, filterCategory }) {
           className='res-item-list border border-blue-600 hidden my-3 px-3 py-2 rounded-xl shadow-sm max-[1040px]:block bg-white'
         >
           <div className='flex justify-between gap-3 items-start px-1 py-1'>
-            <div className='flex w-full gap-2 items-center'>
-              <div className='text-[1.5rem] font-semibold capitalize leading-tight text-blue-700'>
+            <div className='flex w-full gap-1 items-start flex-col'>
+              <div className='text-[1.5rem] max-[700px]:text-[1.3rem] max-[518px]:text-[1.1rem] font-semibold capitalize leading-tight text-blue-700 max-[385px]:text-[1rem]'>
                 {item.name}
               </div>
-
-              <div
-                className=' inline-block text-[0.75rem] bg-gradient-to-br 
+              <div className='flex justify-between w-full items-center'>
+                <div
+                  className=' inline-block text-[0.75rem] bg-gradient-to-br 
           from-indigo-400 to-blue-500 text-white px-2 py-0.5 rounded-md 
-          font-semibold tracking-wide shadow-sm'
-              >
-                {item.category}
-              </div>
-            </div>
-
-            <div className='flex gap-1 h-fit'>
-              <div
-                onClick={() => markAsBought(item.id)}
-                className={`cursor-pointer text-[0.8rem] text-white px-2 py-1 rounded-md font-semibold
+          font-semibold tracking-wide shadow-sm max-[385px]:text-[0.65rem]'
+                >
+                  {item.category}
+                </div>
+                <div className='flex gap-1 h-fit'>
+                  <div
+                    onClick={() => markAsBought(item.id)}
+                    className={`cursor-pointer text-[0.8rem] text-white px-2 py-1 rounded-md font-semibold max-[385px]:text-[0.65rem]
           ${
             item.status === 'MARK'
               ? 'bg-gradient-to-br from-indigo-500 to-blue-600'
               : 'bg-gray-500'
           }`}
-              >
-                {item.status === 'MARK' ? item.status : '✓'}
-              </div>
+                  >
+                    {item.status === 'MARK' ? item.status : '✓'}
+                  </div>
 
-              <div
-                onClick={() => deleteItems(item.id)}
-                className='bg-red-500 px-2 py-1 rounded-md text-white cursor-pointer text-[0.8rem] font-bold'
-              >
-                ☓
+                  <div
+                    onClick={() => deleteItems(item.id)}
+                    className='bg-red-500 px-2 py-1 rounded-md text-white cursor-pointer text-[0.8rem] font-bold max-[385px]:text-[0.65rem]'
+                  >
+                    ☓
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className='flex justify-between py-1 px-1 pl-2 pt-0.5 text-[0.85rem] text-gray-700'>
+          <div className='flex justify-between py-1 px-1 pl-2 pt-0.5 text-[0.85rem] max-[518px]:text-[0.7rem] text-gray-700'>
             <div className='flex gap-6'>
               <span>
                 QTY:{' '}
-                <strong className='text-[1rem] font-bold text-blue-700'>
-                {Number(item.quantity).toLocaleString()}
+                <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] max-[385px]:text-[0.7rem]'>
+                  {Number(item.quantity).toLocaleString()}
                 </strong>
               </span>
               <span>
                 PRICE:{' '}
-                <strong className='text-[1rem] font-bold text-blue-700'>
-                ₱{Number(item.price).toLocaleString()}
+                <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] max-[385px]:text-[0.7rem]'>
+                  ₱{Number(item.price).toLocaleString()}
                 </strong>
               </span>
             </div>
 
             <div>
               TOTAL:{' '}
-              <strong className='text-[1rem] font-bold text-blue-700'>
-              ₱{Number(item.cost).toLocaleString()}
+              <strong className='text-[1rem] font-bold text-blue-700 max-[518px]:text-[0.85rem] max-[385px]:text-[0.7rem]'>
+                ₱{Number(item.cost).toLocaleString()}
               </strong>
             </div>
           </div>
