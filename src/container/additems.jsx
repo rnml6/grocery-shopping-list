@@ -100,7 +100,7 @@ function AddItems ({ items, setItems, overallBudget, setOverallBudget }) {
         </div>
       </div>
 
-      <div className='flex mt-8 gap-6 max-[605px]:mt-5'>
+      <div className='flex mt-8 gap-6 max-[605px]:mt-5 max-[420px]:gap-3'>
         <button onClick={addItem} className='add-item-button'>
           ADD ITEM
         </button>
@@ -112,16 +112,16 @@ function AddItems ({ items, setItems, overallBudget, setOverallBudget }) {
       <div className='flex flex-col border-blue-600 border-t-2 mt-8 pt-4 max-[605px]:mt-5'>
         <h3 className='container-label'>BUDGET DETAILS</h3>
 
-        <div className='flex items-center w-full gap-3 max-[605px]:flex-col'>
+        <div className='flex items-center w-full gap-3 max-[605px]:flex-col mt-0'>
           <input
             type='number'
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
             placeholder='Enter budget'
-            className='w-full [&::-webkit-inner-spin-button]:appearance-none add-items-fieldset '
+            className='w-full [&::-webkit-inner-spin-button]:appearance-none add-items-fieldset'
           />
 
-          <div className='flex items-center gap-3 max-[605px]:w-full max-[605px]:gap-6'>
+          <div className='flex items-center gap-3 max-[605px]:w-full max-[605px]:gap-6 max-[420px]:gap-3'>
             <button
               className='budget-button '
               onClick={() => setOverallBudget(Number(inputValue) || null)}
