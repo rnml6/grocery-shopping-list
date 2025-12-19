@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Budget from '../container/budget'
 import AddItems from '../container/additems'
 import ItemsList from '../container/itemsList'
@@ -10,16 +10,9 @@ function Content () {
   const [filterCategory, setFilterCategory] = useState('ALL')
   const [sortBy, setSortBy] = useState('')
   const [sortOrder, setSortOrder] = useState('asc')
-  const [maxWidth, setMaxWidth] = useState(window.innerWidth)
   const [overallBudget, setOverallBudget] = useState(0)
   const [activeTab, setActiveTab] = useState('all')
   const [showFilterPanel, setShowFilterPanel] = useState(false)
-
-  useEffect(() => {
-    const handleResize = () => setMaxWidth(window.innerWidth)
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
 
   const filteredItems = items
     .filter(item => {
@@ -33,25 +26,23 @@ function Content () {
     })
     .sort((a, b) => {
       if (!sortBy) return 0
+      let valueA =
+        sortBy === 'quantity'
+          ? Number(a.quantity)
+          : Number(a.quantity * a.price)
+      let valueB =
+        sortBy === 'quantity'
+          ? Number(b.quantity)
+          : Number(b.quantity * b.price)
 
-      let valueA, valueB
-
-      if (sortBy === 'quantity') {
-        valueA = a.quantity
-        valueB = b.quantity
-      } else if (sortBy === 'cost') {
-        valueA = a.quantity * a.price
-        valueB = b.quantity * b.price
-      } else if (sortBy === 'name') {
-        valueA = a.name.toLowerCase()
-        valueB = b.name.toLowerCase()
+      // Fixed sorting logic:
+      // If asc: smaller values first (return -1 if A < B)
+      // If desc: larger values first (return 1 if A < B)
+      if (sortOrder === 'asc') {
+        return valueA - valueB
       } else {
-        return 0
+        return valueB - valueA
       }
-
-      if (valueA < valueB) return sortOrder === 'asc' ? -1 : 1
-      if (valueA > valueB) return sortOrder === 'asc' ? 1 : -1
-      return 0
     })
 
   return (
@@ -71,18 +62,18 @@ function Content () {
       </div>
 
       <div className='bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-sm border border-gray-100 max-[500px]:px-6'>
-        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-3 max-[420px]:mb-3 max-[420px]:gap-2'>
-          <h1 className='text-[2rem] tracking-wide uppercase font-bold bg-gradient-to-br from-indigo-500 to-blue-600 bg-clip-text text-transparent max-[890px]:text-[1.5rem] max-[420px]:text-[1.1rem]'>
+        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-3'>
+          <h1 className='text-[2rem] tracking-wide uppercase font-bold bg-gradient-to-br from-indigo-500 to-blue-600 bg-clip-text text-transparent max-[890px]:text-[1.5rem] max-[420px]:text-[1.1rem] max-[420px]:pt-2'>
             LIST OF ITEMS
           </h1>
 
           <div className='flex items-center gap-2 sm:gap-3 w-full sm:w-auto'>
             <button
               onClick={() => setShowFilterPanel(!showFilterPanel)}
-              className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg font-medium text-sm transition-all ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-medium text-sm transition-all max-[420px]:py-2 max-[420px]:text-[0.8rem] ${
                 showFilterPanel
                   ? 'bg-blue-50 text-blue-700 border border-blue-100 shadow-sm'
-                  : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-100'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-100 border border-gray-100'
               }`}
             >
               {showFilterPanel ? (
@@ -95,7 +86,7 @@ function Content () {
 
             <button
               onClick={() => setItems([])}
-              className='flex-1 sm:flex-initial px-3 sm:px-4 py-2.5 sm:py-2 bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 text-white rounded-lg font-medium text-sm hover:bg-red-100 transition-colors border border-red-100 whitespace-nowrap max-[420px]:text-[0.8rem] hover:shadow-sm'
+              className='flex-1 sm:flex-initial px-5  py-3  bg-gradient-to-r from-red-500 to-red-700 text-white rounded-lg font-medium text-sm transition-colors border border-red-100 whitespace-nowrap max-[420px]:py-2 max-[420px]:text-[0.8rem] '
             >
               CLEAR ALL
             </button>
@@ -162,8 +153,8 @@ function Content () {
                         }`}
                       >
                         {sortOrder === 'asc'
-                          ? '↓ High to Low'
-                          : '↑ Low to High'}
+                          ? '↑ Low to High'
+                          : '↓ High to Low'}
                       </button>
                       <button
                         onClick={() => {
@@ -182,40 +173,23 @@ function Content () {
           </div>
         )}
 
-        <div className='flex bg-gray-50/80 backdrop-blur-sm rounded-lg p-1 mb-3 w-full sm:w-fit max-[420px]:mb-3 border border-gray-100'>
-          <button
-            className={`flex-1 max-[420px]:text-[0.8rem] sm:flex-initial px-4 py-2.5 sm:py-2 rounded-md font-medium transition-all whitespace-nowrap ${
-              activeTab === 'all'
-                ? 'bg-white text-gray-800 shadow-sm border border-gray-100'
-                : 'text-gray-600 hover:text-gray-800 hover:bg-white/50'
-            }`}
-            onClick={() => setActiveTab('all')}
-          >
-            All
-          </button>
-          <button
-            className={`max-[420px]:text-[0.8rem] flex-1 sm:flex-initial px-4 py-2.5 sm:py-2 rounded-md font-medium transition-all whitespace-nowrap ${
-              activeTab === 'pending'
-                ? 'bg-white text-blue-700 shadow-sm border border-blue-100'
-                : 'text-gray-600 hover:text-blue-700 hover:bg-white/50'
-            }`}
-            onClick={() => setActiveTab('pending')}
-          >
-            Pending
-          </button>
-          <button
-            className={`max-[420px]:text-[0.8rem] flex-1 sm:flex-initial px-4 py-2.5 sm:py-2 rounded-md font-medium transition-all whitespace-nowrap ${
-              activeTab === 'bought'
-                ? 'bg-white text-teal-600 shadow-sm border border-teal-100'
-                : 'text-gray-600 hover:text-teal-600 hover:bg-white/50'
-            }`}
-            onClick={() => setActiveTab('bought')}
-          >
-            Bought
-          </button>
+        <div className='flex bg-gray-50/80 rounded-lg p-1 mb-3 w-full sm:w-fit border border-gray-100'>
+          {['all', 'pending', 'bought'].map(tab => (
+            <button
+              key={tab}
+              className={`px-4 py-2 rounded-md font-medium capitalize transition-all ${
+                activeTab === tab
+                  ? 'bg-white text-blue-700 shadow-sm'
+                  : 'text-gray-600'
+              }`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
 
-        <div className='hidden min-[1040px]:grid grid-cols-12 gap-4 mb-4 px-2 text-sm font-medium text-gray-500 border-b border-gray-300 py-3 bg-gray-50/50 rounded-t-lg'>
+        <div className='hidden min-[1040px]:grid grid-cols-12 gap-4 mb-4 px-2 text-sm font-medium text-gray-500 border-b border-gray-300 py-3'>
           <div className='col-span-4'>Name</div>
           <div className='col-span-3'>Category</div>
           <div className='col-span-1'>Qty</div>
@@ -224,11 +198,7 @@ function Content () {
           <div className='col-span-1 text-end'>Status</div>
         </div>
 
-        <ItemsList
-          filterCategory={filterCategory}
-          items={filteredItems}
-          setItems={setItems}
-        />
+        <ItemsList items={filteredItems} setItems={setItems} />
       </div>
     </div>
   )
